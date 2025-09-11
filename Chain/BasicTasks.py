@@ -39,4 +39,4 @@ chain = LLMChain(llm=llm,prompt=prompt)
 subject = input("Enter a subject for jokes: ")
 
 response = chain.run({"Subject: ", subject})
-print(response)
+print("Ai Response": response)
