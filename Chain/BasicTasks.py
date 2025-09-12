@@ -56,3 +56,18 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 # response = chain.run({"theme": theme})
 # print(response)
 
+# ✅ Task 5 – Combine User Input (Intro Maker)
+# load_dotenv()
+# llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=os.getenv("GOOGLE_API_KEY"))
+
+# prompt = PromptTemplate(
+#     input_variables=["name","hoby"],
+#     template="Write a short introduction for {name}, who enjoys {hoby}"
+# )
+
+# chain = LLMChain(llm=llm, prompt=prompt)
+# name = input("Enter your name: ")
+# hoby = input("Enter your hoby: ")
+# response = chain.run({"name": name,"hoby":hoby})
+# print(response)
+
