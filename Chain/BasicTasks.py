@@ -1,8 +1,8 @@
-# import os 
-# from dotenv import load_dotenv
-# from langchain.chains import LLMChain
-# from langchain.prompts import PromptTemplate
-# from langchain_google_genai import ChatGoogleGenerativeAI
+import os 
+from dotenv import load_dotenv
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 # load_dotenv()
 # llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=os.getenv("GOOGLE_API_KEY"))
@@ -21,22 +21,38 @@
 
 # ✅ Task 2 – Joke Generator
 
-import os 
-from dotenv import load_dotenv
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
-from langchain_google_genai import ChatGoogleGenerativeAI
+# import os 
+# from dotenv import load_dotenv
+# from langchain.prompts import PromptTemplate
+# from langchain.chains import LLMChain
+# from langchain_google_genai import ChatGoogleGenerativeAI
 
-load_dotenv()
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=os.getenv("GOOGLE_API_KEY"))
+# load_dotenv()
+# llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=os.getenv("GOOGLE_API_KEY"))
 
-prompt = PromptTemplate(
-    input_variables = ["subject"],
-    template="tell me a funny jokes about {subject}"
-)
+# prompt = PromptTemplate(
+#     input_variables = ["subject"],
+#     template="tell me a funny jokes about {subject}"
+# )
 
-chain = LLMChain(llm=llm,prompt=prompt)
-subject = input("Enter a subject for jokes: ")
+# chain = LLMChain(llm=llm,prompt=prompt)
+# subject = input("Enter a subject for jokes: ")
 
-response = chain.run({"Subject: ", subject})
-print("Ai Response": response)
+# response = chain.run({"Subject: ", subject})
+# print("Ai Response": response)
+
+# ✅ Task 3 – Daily Quote
+# load_dotenv()
+# llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=os.getenv("GOOGLE_API_KEY"))
+
+# prompt = PromptTemplate(
+#     input_variables = ["theme"],
+#     template="Give me an inspiring daily quote about {theme}"
+# )
+
+# chain = LLMChain(llm=llm,prompt=prompt)
+# theme = input("Enter your theme: ")
+
+# response = chain.run({"theme": theme})
+# print(response)
+
