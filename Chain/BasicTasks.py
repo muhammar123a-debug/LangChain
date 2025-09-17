@@ -24,13 +24,38 @@ llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=os.getenv(
 # print(result)
 
 # Task 2: Translator Chain (Gemini ke sath)
-prompt = PromptTemplate(
-    input_variables = ["english_text"],
-    template = "Translate the following English text into Urdu:\n\n{english_text}"
+# prompt = PromptTemplate(
+#     input_variables = ["english_text"],
+#     template = "Translate the following English text into Urdu:\n\n{english_text}"
+# )
+# translate_chain = LLMChain(llm=llm, prompt=prompt)
+
+# english_text = "Artificial Intelligence is changing the world by automating tasks and improving decision making"
+
+# result = translate_chain.run(english_text=english_text)
+# print(result)
+
+# Task 3 Question Generator Chain (Gemini ke sath)
+# prompt = PromptTemplate(
+#     input_variables=["topic"],
+#     template="Generate 3 simple and clear questions about the topic: {topic}"
+# )
+
+# topic_chain = LLMChain(llm=llm, prompt=prompt)
+
+# topic = "python Programing"
+
+# response = topic_chain.run(topic=topic)
+# print(response)
+
+# Task 4: Tweet Generator Chain (Gemini ke sath)
+prompt=PromptTemplate(
+    input_variables = ["Topic"],
+    template = "Write a creative tweet about {topic}. Keep it under 280 characters and engaging",
 )
-translate_chain = LLMChain(llm=llm, prompt=prompt)
+topic_chain = LLMChain(llm=llm, prompt=prompt)
 
-english_text = "Artificial Intelligence is changing the world by automating tasks and improving decision making"
+topic = "AI in Education"
 
-result = translate_chain.run(english_text=english_text)
-print(result)
+response = topic_chain.run(topic=topic)
+print(response)
