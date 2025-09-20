@@ -64,28 +64,39 @@ llm = ChatGoogleGenerativeAI(model = "gemini-1.5-flash", google_api_key=os.geten
 
 # Task 13: Startup Idea → Pitch
 
-idea_prompt = PromptTemplate(
-    input_variables = ["industry"],
-    template = "Generate a unique startup idea in the {industry} industry."
-)
-idea_chain = LLMChain(llm=llm,prompt=idea_prompt, output_key="idea")
+# idea_prompt = PromptTemplate(
+#     input_variables = ["industry"],
+#     template = "Generate a unique startup idea in the {industry} industry."
+# )
+# idea_chain = LLMChain(llm=llm,prompt=idea_prompt, output_key="idea")
 
-pitch_prompt = PromptTemplate(
-    input_variables = ["idea"],
-    template = "Write a compelling 150-word startup pitch for the following idea:\n\n{idea}"
-)
-pitch_chain = LLMChain(llm=llm, prompt=pitch_prompt, output_key="pitch")
+# pitch_prompt = PromptTemplate(
+#     input_variables = ["idea"],
+#     template = "Write a compelling 150-word startup pitch for the following idea:\n\n{idea}"
+# )
+# pitch_chain = LLMChain(llm=llm, prompt=pitch_prompt, output_key="pitch")
 
-overall_chain = SequentialChain(
-    chains=[idea_chain,pitch_chain],
-    input_variables=["industry"],
-    output_variables=["idea","pitch"],
-    verbose=True
-)
-industry = "Healthcare"
-result = overall_chain({"industry": industry})
+# overall_chain = SequentialChain(
+#     chains=[idea_chain,pitch_chain],
+#     input_variables=["industry"],
+#     output_variables=["idea","pitch"],
+#     verbose=True
+# )
+# industry = "Healthcare"
+# result = overall_chain({"industry": industry})
 
-print("\nStartup Idea:\n", result["idea"])
-print("\nPitch:\n", result["pitch"])
+# print("\nStartup Idea:\n", result["idea"])
+# print("\nPitch:\n", result["pitch"])
 
 # Task 15: Q&A Follow-up Chain
+answer_prompt = PromptTemplate(
+    input_variables = ["question"],
+    template = "Answer the following question clearly:\n\n {question}"
+)
+
+answer_chain = LLMChain(llm=llm, prompt=answer_prompt, output_key="answer")
+
+followup_prompt = PromptTemplate(
+    input_variables = ["answer"],
+    
+)
